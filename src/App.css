@@ -1,0 +1,75 @@
+:root{
+  --background:#7868E6;
+  --footer:#B8B5FF;
+}
+.box-shadow-img{
+  box-shadow: rgb(125 117 117 / 55%) 0px 0px 1px 1px;
+  border-top-right-radius:0.25rem !important ;
+  border-top-left-radius:0.25rem !important ;
+}
+.box-shadow-text{
+  box-shadow: rgb(0 0 0 / 20%) 0px 1px 2px 1px;
+  border-bottom-right-radius:0.25rem !important ;
+  border-bottom-left-radius:0.25rem !important ;
+}
+.box-shadow-text p{
+  background: var(--background);
+}
+header div{
+  background:var(--background)
+}
+nav a{
+  color:#E4FBFF;
+}
+header{
+  background: var(--background);
+}
+.input-back{
+  background: url(https://source.unsplash.com/960x350?gift);
+  background-size: cover;
+  height: 350px !important;
+}
+footer{
+  background: var(--background);
+}
+.input-option{
+    border-bottom-left-radius:50px ;
+    border-top-left-radius:50px
+}
+.search-button{
+  background: var(--background);
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+@media only screen and (max-width:600px){
+  .container{
+       margin:0px !important;
+       padding:0px !important;
+  }
+  .px-5{
+    padding-left:0px !important;
+    padding-right: 0px !important;
+   
+  }
+  .py-14{
+    padding:0px !important;
+  }
+  #py{
+    padding:0px !important
+  }
+  .s{width:80%;}
+  body{
+    background: pink;
+  }
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

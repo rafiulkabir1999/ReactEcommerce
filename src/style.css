@@ -1,0 +1,16 @@
+body::-webkit-scrollbar{
+    width: .2rem;
+}
+body::-webkit-scrollbar-track{
+    background: lightcoral;
+}
+body::-webkit-scrollbar-thumb{
+ background-color: lightgreen;
+}
+
+a{
+    text-decoration: none;
+}
+..iframe{
+   filter: grayscale(1) contrast(1.2) opacity(0.4);
+}
