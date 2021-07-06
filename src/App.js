@@ -28,7 +28,7 @@ function App() {
              <Contact/>
          </Route>
 
-         <Route path='/menubar/:id/:price' exact>
+         <Route path='/menubar/:id' exact>
              <Product/>
          </Route>
 

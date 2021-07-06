@@ -1,30 +1,75 @@
 import ProductsList from './ProductsList'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Search from './search.jsx'
 import Gallery  from './gallery';
+import ClipLoader from "react-spinners/ClipLoader";
 const Blog=()=>{
 
- const [products,setProducts]=useState([{name:'Television',price:12},{name:'Mango',price:1500},{name:'Sunglass',price:1200},{name:'Bird',price:2400},{name:'watch',price:10},{name:'Laptop',price:32100},{name:'R15',price:350000},{name:'Apple',price:30000},{name:'Tinder',price:21030},{name:"chocolate",price:450},{name:'Burger',price:555},{name:'pizza',price:1200}])
+ const [products,setProducts]=useState([])
+ const [productLoading,setProductLoading]=useState(true)
+ 
+const loadproduct=()=>{
+  fetch('https://fakestoreapi.com/products')
+  .then(res=> res.json()
+  ).then(res=>{
+    setProductLoading(false)
+    setProducts(res)
+  }).catch(error=>console.log(error))
 
- console.log(products)
- const hello=(a)=>{
-const newp=products.filter(p=>{ return p.name==a})
-  setProducts(newp)
  }
+
+useEffect(()=>{
+
+ loadproduct();
+
+},[])
+
+
+
+
+
+console.log(products)
+ const hello=(a)=>{
+  fetch('https://fakestoreapi.com/products').then(res=>{return res.json()}).then(res=>{
+  
+   const search=res.filter(f=>{
+    
+    if (f.category.charAt(0)===a.charAt(0))
+    return f;
+     console.log("match")
+     //console.log(a)
+   })
+   a?
+   setProducts(search) : loadproduct();
+      
+    })
+  }
+
+    
+      
+ 
 
     return(
              
          
-      <section class="text-gray-600 body-font relative " style={{top:'120px'}}> 
+      <section class="container text-gray-600 body-font relative "> 
       
-      
-      <div id='py' class="container px-5 py-14 mx-auto"><Search s={hello}/><hr></hr><br></br>
-      <div class="flex flex-wrap -m-4">
-            <ProductsList products={products}/>
+      <Search s={hello}/>
+           <br></br>
+      {productLoading ?<div class='flex justify-center m-20'><ClipLoader /> </div>:
+      <span>{products.length!=0 ? <div id='py' class=" px-5 py-14 mx-auto">
+      <h2>New Collection </h2><hr></hr><br></br>
+      <div class=" flex flex-wrap -m-4">
+        <ProductsList products={products}/>
             </div> 
-      </div>
+      </div> : <h2>Not Found</h2>}</span>
+}
+      
+ 
+
+
       <Gallery/>
-     
+     <br></br>
     </section>
 
     );

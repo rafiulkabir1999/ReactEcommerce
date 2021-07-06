@@ -5,7 +5,7 @@ const Search=(props)=>{
   const search=()=>{   props.s(Search.current.value)}
  
     return(
-       <div class=' input-back flex'>
+       <div class='container input-back flex'>
             <div class='xl:w-1/3 lg:w-2/4  md:w-1/2 sm:w-80% w-100% s m-auto '>
            <div class='flex justify-center  h-12 '>
                <input class='border-1  px-2 text-center outline-none flex-grow-1 text-lg input-option' ref={Search} placeholder="   Search here"></input>

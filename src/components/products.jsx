@@ -5,20 +5,24 @@ import ClipLoader from "react-spinners/ClipLoader";
 const Product=()=>{
 
 const [isloading,setloading]=useState(true) 
+const [product,setproduct]=useState({description:"Loading",url:'Loading'});
 
 let id=useParams()
-let price=useParams();
-const url =`https://source.unsplash.com/400x400/?${id.id}`;
+
+const url =`https://fakestoreapi.com/products/${id.id}`;
+console.log(url)
 
 useEffect(()=>{
 
-fetch(url).then(responce=>{
+fetch(url).then(res=>{return res.json()}
+).then(b=>{
+  setproduct(b)
   setloading(false);
+
 })
-console.log(isloading)
+
 },[])
 
-  
 
 
 
@@ -34,7 +38,7 @@ console.log(isloading)
           <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Reviews</a>
           <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Details</a>
         </div>
-        <p class="leading-relaxed mb-4">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam inxigo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean.</p>
+        <p class="leading-relaxed mb-4">{product.description}</p>
         <div class="flex border-t border-gray-200 py-2">
           <span class="text-gray-500">Color</span>
           <span class="ml-auto text-gray-900">Blue</span>
@@ -48,7 +52,7 @@ console.log(isloading)
           <span class="ml-auto text-gray-900">4</span>
         </div>
         <div class="flex">
-          <span class="title-font font-medium text-2xl text-gray-900">$58.00</span>
+          <span class="title-font font-medium text-2xl text-gray-900">{product.price}Tk</span>
           <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
           <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
             <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
@@ -57,7 +61,7 @@ console.log(isloading)
           </button>
         </div>
       </div>
-      {isloading ?<div class='m-auto '><ClipLoader /> </div>: <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={url}></img>}
+      {isloading ?<div class='m-auto '><ClipLoader /> </div>: <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={product.image} ></img>}
       
     </div>
   </div>

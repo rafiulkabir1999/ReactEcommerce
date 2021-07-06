@@ -25,7 +25,7 @@ header{
   background: var(--background);
 }
 .input-back{
-  background: url(https://source.unsplash.com/960x350?gift);
+  background: url(https://i3.glitter-graphics.org/pub/1995/1995543co2w8gp3ah.gif);
   background-size: cover;
   height: 350px !important;
 }
@@ -59,8 +59,8 @@ footer{
     padding:0px !important
   }
   .s{width:80%;}
-  body{
-    background: pink;
+  .input-back{
+    margin-top:110px !important
   }
 }
 

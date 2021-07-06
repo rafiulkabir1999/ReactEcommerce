@@ -1,6 +1,8 @@
 import {AiOutlineHome ,AiOutlinePhone} from 'react-icons/ai'
+import { useEffect } from 'react';
 
 const Menubar=()=>{
+
 
     return(
    

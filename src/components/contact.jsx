@@ -3,7 +3,7 @@
 
     
     return(
-<section class="text-gray-600 body-font relative container">
+<section class="text-gray-600 body-font relative container z-0">
   <div class="absolute inset-0 bg-gray-300">
     <iframe className='iframe' width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=%C4%B0zmir+(My%20Business%20Name)&amp;ie=UTF6&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" ></iframe>
   </div>
